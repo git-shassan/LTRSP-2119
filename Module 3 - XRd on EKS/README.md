@@ -227,7 +227,6 @@ On the AWS Console, we can see that the xrd-vrouter image is available as well.
 [ECR](https://eu-west-1.console.aws.amazon.com/ecr/private-registry/repositories?region=eu-west-1)
 ![ECR](image-9.png)
 
-**TODO: DELETE OCP BOOTSTRAP**
 
 ## Create the Topology's EC2 and Networking Infrastructure
 The cleu-topology/infra module handles the provisioning of the core infrastructure for our topology. It deploys three EC2 instances using our recently created AMI and associates them with our existing EKS Cluster. Additionally, the module establishes network interfaces and subnets within our VPC. Each node is equipped with multiple Elastic Network Interfaces ([ENIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html)), each linked to a specific subnet. These ENIs are distributed across different subnets within each node.
