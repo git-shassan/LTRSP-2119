@@ -29,8 +29,6 @@ On **XRd1 & XRd2** copy paste the following configuration to create a default ro
 end
 ```
 
-On XRd5, copy paste the following configuration to create a dafault route
-
 
 ## 1. Build an Overlay between your AWS and  On-Prem Network
 
