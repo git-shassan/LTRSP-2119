@@ -342,14 +342,17 @@ For your reference:
 **Please open each XRd instance in a new terminal. It will make things easier for modules 4 and 5**
 
 XRd1:
+
     export KUBECONFIG=/root/.kube/eks
     kubectl exec -it xrd1-xrd-vrouter-0 -- xr
 
 XRd2: 
+
     export KUBECONFIG=/root/.kube/eks
     kubectl exec -it xrd2-xrd-vrouter-0 -- xr
 
 XRd3:
+
     export KUBECONFIG=/root/.kube/eks
     kubectl exec -it xrd3-xrd-vrouter-0 -- xr
 
