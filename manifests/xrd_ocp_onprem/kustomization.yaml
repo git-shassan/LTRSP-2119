@@ -1,0 +1,27 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+# Change this namespace value if you want to use a different one than the default
+namespace: xrd 
+
+resources:
+# Configure performance profile. 
+#- pao.yaml
+
+# TuneD Operator for systemctl configs
+#- tuned.yaml
+
+# Machine config
+#- mc.yaml
+
+#Sets up the namespace for XRd
+#- ns.yaml
+
+# Create a service account and Role Based Access for the account
+- sa.yaml
+- role.yaml
+
+# Contain startup configuration for XRd - Currently, only a username
+- configmap.yaml
+
+# Stateful set to deploy XRd application
+- statefulset.yaml

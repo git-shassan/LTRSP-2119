@@ -1,0 +1,83 @@
+hostname XRd5
+logging console debugging
+username cisco
+ group root-lr
+ group cisco-support
+ secret 10 $6$G4Oik1Va9wt0Dk1.$Dow85E76MOlz5bJ3EwTfhkxuYL3yspjqQbBPW84.uPFFfdUOHvyUznbKRtgq3Xhnx5s7sW90HwkB7X7SHKgjq/
+!
+call-home
+ service active
+ contact smart-licensing
+ profile CiscoTAC-1
+  active
+  destination transport-method email disable
+  destination transport-method http
+ !
+!
+interface Loopback0
+ ipv4 address 1.0.0.5 255.255.255.255
+!
+interface Loopback100
+ ipv4 address 100.0.0.5 255.255.255.255
+!
+interface tunnel-ip15
+ mtu 1450
+ ipv4 address 15.15.15.5 255.255.255.0
+ tunnel source TenGigE0/0/0/0
+ tunnel destination 99.81.148.31
+!
+interface tunnel-ip25
+ mtu 1450 
+ ipv4 address 25.25.25.5 255.255.255.0
+ tunnel source TenGigE0/0/0/0
+ tunnel destination 54.78.173.193
+!
+interface TenGigE0/0/0/0
+ ipv4 address 198.18.1.11 255.255.255.0
+!
+interface TenGigE0/0/0/1
+ shutdown
+!
+interface TenGigE0/0/0/2
+ shutdown
+!
+router static
+ address-family ipv4 unicast
+  0.0.0.0/0 198.18.1.1
+  99.81.148.31/32 198.18.1.1
+ !
+!
+router isis 100
+ is-type level-2-only
+ net 49.0000.0000.0005.00
+ address-family ipv4 unicast
+  metric-style wide
+  advertise link attributes
+  segment-routing mpls sr-prefer
+ !
+ interface Loopback100
+  address-family ipv4 unicast
+   prefix-sid index 5
+  !
+ !        
+ interface tunnel-ip15
+  point-to-point
+  hello-padding disable
+  address-family ipv4 unicast
+  !
+ !
+ interface tunnel-ip25
+  point-to-point
+  hello-padding disable
+  address-family ipv4 unicast
+  !
+ !
+!
+mpls oam
+!
+segment-routing
+ global-block 16000 17000
+!
+ssh server v2
+end
+

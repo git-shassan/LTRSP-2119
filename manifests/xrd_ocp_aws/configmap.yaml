@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: xrd-control-plane-config
+  namespace: xrd
+  annotations:
+
+  labels:
+    helm.sh/chart: xrd-control-plane-1.0.1
+    app.kubernetes.io/name: xrd-control-plane
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "7.8.1"
+data:
+  startup.cfg: |
+    hostname XRd4
+    username cisco
+     group root-lr
+     group cisco-support
+     password cisco123
+    interface Loopback0
+     ipv4 address 1.0.0.4 255.255.255.255

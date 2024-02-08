@@ -1,0 +1,71 @@
+apiVersion: performance.openshift.io/v2
+kind: PerformanceProfile
+metadata:
+  name: iosxr-performanceprofile
+spec:
+  additionalKernelArgs:
+  cpu:
+    isolated: 4-7
+    reserved: 0-3
+  hugepages:
+    defaultHugepagesSize: 2M
+    pages:
+      - count: 2560
+        size: 2M
+  nodeSelector:
+    node-role.kubernetes.io/master: ""
+  realTimeKernel:
+    enabled: false
+---
+apiVersion: tuned.openshift.io/v1
+kind: Tuned
+metadata:
+  name: sysctl-updates-iosxr
+  namespace: openshift-cluster-node-tuning-operator
+spec:
+  profile:
+  - name: cisco-xrd-profile
+    data: |
+      [main]
+      summary=A custom profile for Cisco xrd
+      include=openshift-node-performance-iosxr-performanceprofile
+      [sysctl]
+      net.ipv4.ip_local_port_range="1024 65535"
+      net.ipv4.tcp_tw_reuse=1
+      kernel.randomize_va_space=2
+      net.core.rmem_max=67108864
+      net.core.wmem_max=67108864
+      net.core.rmem_default=67108864
+      net.core.wmem_default=67108864
+      net.core.netdev_max_backlog=300000
+      net.core.optmem_max=67108864
+      net.ipv4.udp_mem="1124736 10000000 67108864"
+  recommend:
+  - machineConfigLabels:
+      machineconfiguration.openshift.io/role: master
+    priority: 10
+    profile: cisco-xrd-profile
+---
+apiVersion: machineconfiguration.openshift.io/v1
+kind: MachineConfig
+metadata:
+  labels:
+    machineconfiguration.openshift.io/role: master
+  name: 99-master-sysctl-inotify-override-iosxr
+spec:
+  config:
+    ignition:
+      config: {}
+      security:
+        tls: {}
+      timeouts: {}
+      version: 3.2.0
+    networkd: {}
+    passwd: {}
+    storage:
+      files:
+       - contents:
+           source: data:,%0Afs.inotify.max_user_watches%20%3D%2065536%0Afs.inotify.max_user_instances%20%3D%2064000%0A
+         mode: 420
+         overwrite: true
+         path: /etc/sysctl.d/inotify.conf

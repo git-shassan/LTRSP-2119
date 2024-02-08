@@ -1,0 +1,18 @@
+apiVersion: performance.openshift.io/v2
+kind: PerformanceProfile
+metadata:
+  name: iosxr-performanceprofile
+spec:
+  additionalKernelArgs:
+  cpu:
+    isolated: 2-7
+    reserved: 0-1
+  hugepages:
+    defaultHugepagesSize: 1G
+    pages:
+      - count: 5
+        size: 1G
+  nodeSelector:
+    node-role.kubernetes.io/master: ""
+  realTimeKernel:
+    enabled: false

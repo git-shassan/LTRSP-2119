@@ -1,0 +1,125 @@
+hostname xrd1
+logging console debugging
+logging monitor debugging
+username cisco
+ group root-lr
+ group cisco-support
+ password 7 060506324F41584B56
+!
+line default
+ exec-timeout 0 0
+ width 0
+ length 0
+!
+call-home
+ service active
+ contact smart-licensing
+ profile CiscoTAC-1
+  active
+  destination transport-method email disable
+  destination transport-method http
+ !
+!
+interface Loopback0
+ ipv4 address 1.0.0.1 255.255.255.255
+!
+interface Loopback13
+ ipv4 address 13.0.0.1 255.255.255.255
+!
+interface Loopback100
+ ipv4 address 100.0.0.1 255.255.255.255
+!
+interface tunnel-ip2
+ ipv4 address 7.7.7.2 255.255.255.0
+ shutdown
+ tunnel source HundredGigE0/0/0/0
+ tunnel destination 54.78.173.193
+!
+interface tunnel-ip13
+ mtu 1450
+ ipv4 address 13.13.13.1 255.255.255.0
+ tunnel mode gre ipv4
+ tunnel source HundredGigE0/0/0/1
+ tunnel destination 10.0.11.13
+!
+interface tunnel-ip15
+ mtu 1450
+ ipv4 address 15.15.15.1 255.255.255.0
+ tunnel source HundredGigE0/0/0/0
+ tunnel destination 64.100.13.147
+!
+interface HundredGigE0/0/0/0
+ ipv4 address 10.0.10.11 255.255.255.0
+!
+interface HundredGigE0/0/0/1
+ ipv4 address 10.0.11.11 255.255.255.0
+!
+interface HundredGigE0/0/0/2
+ ipv4 address 10.0.12.11 255.255.255.0
+!
+router static
+ address-family ipv4 unicast
+  0.0.0.0/0 10.0.10.1
+  64.100.13.147/32 10.0.10.1
+ !
+!
+router isis 100
+ is-type level-2-only
+ net 49.0000.0000.0001.00
+ hello-padding disable
+ address-family ipv4 unicast
+  metric-style wide
+  advertise link attributes
+  segment-routing mpls sr-prefer
+ !
+ interface Loopback100
+  address-family ipv4 unicast
+   prefix-sid index 1
+  !
+ !
+ interface tunnel-ip13
+  point-to-point
+  address-family ipv4 unicast
+  !
+ !
+ interface tunnel-ip15
+  point-to-point
+  address-family ipv4 unicast
+  !
+ !        
+ interface HundredGigE0/0/0/1
+  point-to-point
+  address-family ipv4 unicast
+  !
+ !
+!
+router ospf 100
+ router-id 1.0.0.11
+ address-family ipv4 unicast
+ area 0
+  interface HundredGigE0/0/0/1
+   network point-to-point
+  !
+ !
+!
+router bgp 65000
+ bgp router-id 1.0.0.11
+ address-family ipv4 unicast
+ !
+ address-family link-state link-state
+ !
+ neighbor 10.0.11.122
+  remote-as 65000
+  address-family ipv4 unicast
+  !
+  address-family link-state link-state
+  !
+ !
+!
+mpls oam
+!
+segment-routing
+ global-block 16000 17000
+!
+end
+

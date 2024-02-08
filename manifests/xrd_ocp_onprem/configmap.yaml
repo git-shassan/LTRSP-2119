@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: xrd-vrouter-config
+  namespace: xrd
+  annotations:
+
+  labels:
+    helm.sh/chart: xrd-control-plane-1.0.1
+    app.kubernetes.io/name: xrd-control-plane
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "7.8.1"
+data:
+  startup.cfg: |
+    hostname XRd5
+    username cisco
+     group root-lr
+     group cisco-support
+     password cisco123
+    interface Loopback0
+     ipv4 address 1.0.0.5 255.255.255.255
+    interface TenGigE0/0/0/0
+     ipv4 address 198.18.1.11 255.255.255.0
+     no shut

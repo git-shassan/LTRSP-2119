@@ -1,0 +1,12 @@
+image:
+  repository: tdesh10/xrd
+  tag: 7.8.1
+resources:
+  limits:
+    hugepages-2Mi: 2Gi
+  requests:
+    memory: 2Gi
+interfaces:
+- config:
+    last: 2
+  type: pci

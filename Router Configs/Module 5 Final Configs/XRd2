@@ -1,0 +1,88 @@
+
+stname xrd2
+logging console debugging
+logging monitor debugging
+username cisco
+ group root-lr
+ group cisco-support
+ password 7 02050D4808095E731F
+!
+line default
+ exec-timeout 0 0
+ width 0
+ length 0
+!
+call-home
+ service active
+ contact smart-licensing
+ profile CiscoTAC-1
+  active
+  destination transport-method email disable
+  destination transport-method http
+ !
+!
+interface Loopback0
+ ipv4 address 1.0.0.2 255.255.255.255
+!
+interface Loopback100
+ ipv4 address 100.0.0.2 255.255.255.255
+!
+interface tunnel-ip23
+ mtu 1450
+ ipv4 address 23.23.23.2 255.255.255.0
+ tunnel mode gre ipv4
+ tunnel source HundredGigE0/0/0/1
+ tunnel destination 10.0.11.13
+!
+interface tunnel-ip25
+ mtu 1450
+ ipv4 address 25.25.25.2 255.255.255.0
+ tunnel source HundredGigE0/0/0/0
+ tunnel destination 64.100.13.147
+!
+interface HundredGigE0/0/0/0
+ ipv4 address 10.0.10.12 255.255.255.0
+!
+interface HundredGigE0/0/0/1
+ ipv4 address 10.0.11.12 255.255.255.0
+!
+interface HundredGigE0/0/0/2
+ ipv4 address 10.0.12.12 255.255.255.0
+!
+router static
+ address-family ipv4 unicast
+  0.0.0.0/0 10.0.10.1
+ !
+!
+router isis 100
+ is-type level-2-only
+ net 49.0000.0000.0002.00
+ hello-padding disable
+ address-family ipv4 unicast
+  metric-style wide
+  advertise link attributes
+  segment-routing mpls sr-prefer
+ !
+ interface Loopback100
+  address-family ipv4 unicast
+   prefix-sid index 2
+  !
+ !
+ interface tunnel-ip23
+  point-to-point
+  address-family ipv4 unicast
+  !
+ !
+ interface tunnel-ip25
+  point-to-point
+  address-family ipv4 unicast
+  !
+ !
+!
+mpls oam
+!
+segment-routing
+ global-block 16000 17000
+!
+end
+
