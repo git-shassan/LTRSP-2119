@@ -1,1 +1,1 @@
-export KUBECONFIG=~/ocpaws/auto/kubeconfig
+export KUBECONFIG=~/ocpaws/auth/kubeconfig
