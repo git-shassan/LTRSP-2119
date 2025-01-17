@@ -1,4 +1,4 @@
-# Module 1 - OpenShift Install on Public Cloud 
+# Module 6 - OpenShift Install on Public Cloud 
 |[Previous Module](https://github.com/git-shassan/LTRSP-2119/blob/main/Module%200%20-%20Setup%20Environment/README.md)|[Main Menu](https://github.com/git-shassan/LTRSP-2119/blob/main/README.md)|[Next Module](https://github.com/git-shassan/LTRSP-2119/blob/main/Module%202%20-%20XRd%20on%20OpenShift%20onprem/README.md)|
 |----------------------------|----------------------------|----------------------------|
 
@@ -202,13 +202,9 @@ This shows that there is one interface currently available.
 
 
 
-# Module 6 - Install and Configure XRd on OpenShift in Public Cloud: 
+# Continue post-install steps:
 
-|[Previous Module](https://github.com/git-shassan/LTRSP-2119/blob/main/Module%205%20-%20Connecting%20Physical%20and%20Cloud%20Infrastructure/README.md)|[Main Menu](https://github.com/git-shassan/LTRSP-2119/blob/main/README.md)||
-|----------------------------|----------------------------|----------------------------|
-
-In Module #1, you had started the installation of an OpenShift cluster on AWS. This cluster would have completed its installation 
-by now (normally takes around 30 mins since the time you started the installation). You can revisit the termminal window where the 
+At this point, you have completged the installation of OpenShift cluster on AWS (normally takes around 30 mins since the time you started the installation). You can revisit the termminal window where the 
 installation was run to verify the installation is completed. 
 
 #### Switching context to OpenShift Cluster on AWS: 
