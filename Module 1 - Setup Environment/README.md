@@ -1,7 +1,6 @@
-# Module 0
-|[Previous Module]()|[Main Menu](https://github.com/git-shassan/LTRSP-2119/blob/main/README.md)|[Next Module](https://github.com/git-shassan/LTRSP-2119/blob/main/Module%201%20-%20OpenShift%20install%20on%20Public%20Cloud/README.md)|
+# Module 1
+|[Previous Module]()|[Main Menu](https://github.com/git-shassan/LTRSP-2119/blob/main/README.md)|[Next Module](https://github.com/git-shassan/LTRSP-2119/blob/main/Module%202%20-%20XRd%20on%20OpenShift%20onprem/README.md)|
 |----------------------------|----------------------------|----------------------------|
-
 
 
 ## Open dCloud environment
