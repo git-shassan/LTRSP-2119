@@ -7,7 +7,7 @@ metadata:
   labels:
     app.kubernetes.io/name: xrd-vrouter
     app.kubernetes.io/instance: release-name
-    app.kubernetes.io/version: "7.8.1"
+    app.kubernetes.io/version: "24.4.1"
 spec:
   replicas: 1
   serviceName: xrd-vrouter
@@ -21,7 +21,7 @@ spec:
       labels:
         app.kubernetes.io/name: xrd-vrouter
         app.kubernetes.io/instance: release-name
-        app.kubernetes.io/version: "7.8.1"
+        app.kubernetes.io/version: "24.4.1"
     spec:
       serviceAccount: xrd-sa
       serviceAccountName: xrd-sa
@@ -33,7 +33,7 @@ spec:
             - key: startup.cfg
               path: startup.cfg
       containers:
-      - image: tdesh10/xrd:7.8.1
+      - image: tdesh10/xrd:24.4.1
         resources:
           limits: 
             hugepages-2Mi: 3Gi
@@ -51,7 +51,7 @@ spec:
           - name: XR_FIRST_BOOT_CONFIG
             value: /etc/xrd/startup.cfg
           - name: XR_INTERFACES
-            value: pci-range:last3
+            value: pci-range:last1
           - name: XR_MGMT_INTERFACES
             value: ""
           - name: XR_VROUTER_PCI_DRIVER
