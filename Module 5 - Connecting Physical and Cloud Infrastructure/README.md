@@ -1,7 +1,7 @@
 # Module 5 - Connecting Public and Private Infrastructre
 
-|[Previous Module](https://github.com/git-shassan/LTRSP-2119/blob/main/Module%204%20-%20Creating%20Virtual%20Overlay%20on%20AWS/README.md)|[Main Menu](https://github.com/git-shassan/LTRSP-2119/blob/main/README.md)|[Next Module](https://github.com/git-shassan/LTRSP-2119/blob/main/Module%206%20-%20%5BBonus%5D%20Install%20and%20configure%20XRd%20on%20OpenShift%20in%20public%20cloud/README.md)|
-|----------------------------|----------------------------|----------------------------|
+|[Previous Module](https://github.com/git-shassan/LTRSP-2119/blob/main/Module%204%20-%20Creating%20Virtual%20Overlay%20on%20AWS/README.md)|[Main Menu](https://github.com/git-shassan/LTRSP-2119/blob/main/README.md)|
+|----------------------------|----------------------------|
 
 
 Now that the overlay infrastructure is created on AWS using XRd on both EKS and OpenShift; we will now conect On-Prem insfrastructure to the publich cloud overlay network. It will eventually allow us to configure VPN serices across this _Hybrid Network Infrastructe_
@@ -456,5 +456,5 @@ Lets move to the final module to configure VPN Services across hybrid network in
 
 ![End of Module 5](Mod5_Congrats_Image2.png)
 
-|[Previous Module](https://github.com/git-shassan/LTRSP-2119/blob/main/Module%204%20-%20Creating%20Virtual%20Overlay%20on%20AWS/README.md)|[Main Menu](https://github.com/git-shassan/LTRSP-2119/blob/main/README.md)|[Next Module](https://github.com/git-shassan/LTRSP-2119/blob/main/Module%206%20-%20%5BBonus%5D%20Install%20and%20configure%20XRd%20on%20OpenShift%20in%20public%20cloud/README.md)|
-|----------------------------|----------------------------|----------------------------|
+|[Previous Module](https://github.com/git-shassan/LTRSP-2119/blob/main/Module%204%20-%20Creating%20Virtual%20Overlay%20on%20AWS/README.md)|[Main Menu](https://github.com/git-shassan/LTRSP-2119/blob/main/README.md)|
+|----------------------------|----------------------------|
