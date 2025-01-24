@@ -79,6 +79,12 @@ Removing debug pod ...
 
 Use of VFIO-PCI drivers is now enabled, and you can proceed with installing XRd vRouter. 
 
+### Create Namespace for XRd
+Its good practice (for multitenancy reasons) to run applications in their own namespace. For our XRd instance, lets go ahead and create a namespace using: 
+```
+oc apply -f ~/LTRSP-2119/manifests/xrd_ocp_onprem/ns.yaml
+```
+
 ### Create Service Account
 
 ```
@@ -131,7 +137,7 @@ cat configmap.yaml
 
 The output should look like this: 
 ```
- apiVersion: v1
+apiVersion: v1
 kind: ConfigMap
 metadata:
   name: xrd-control-plane-config
