@@ -174,14 +174,14 @@ Now we can use packer to build an AMI, with the help of the xrd-packer repo:
     git clone https://github.com/ios-xr/xrd-packer
     cd xrd-packer
     packer init .
-    packer build -var kubernetes_version=1.28 amazon-ebs.pkr.hcl
+    packer build -var kubernetes_version=1.31 amazon-ebs.pkr.hcl
 
 It may take a few minutes, but when successfull, it will output the id of the newly created AMI:
     
     ==> amazon-ebs.base: Stopping the source instance...
         amazon-ebs.base: Stopping instance
     ==> amazon-ebs.base: Waiting for the instance to stop...
-    ==> amazon-ebs.base: Creating AMI xrd-1.28-1706406811 from instance i-054e2affa60cc89eb
+    ==> amazon-ebs.base: Creating AMI xrd-1.31-1706406811 from instance i-054e2affa60cc89eb
         amazon-ebs.base: AMI: ami-04acbd67a45602c32
     ==> amazon-ebs.base: Waiting for AMI to become ready...
     ==> amazon-ebs.base: Skipping Enable AMI deprecation...
@@ -189,9 +189,9 @@ It may take a few minutes, but when successfull, it will output the id of the ne
     ==> amazon-ebs.base: Tagging snapshot: snap-0e1019e45b2b57ba0
     ==> amazon-ebs.base: Creating AMI tags
         amazon-ebs.base: Adding tag: "Base_AMI_ID": "ami-0e12ff1a3c8cf683d"
-        amazon-ebs.base: Adding tag: "Base_AMI_Name": "amazon-eks-node-1.28-v20240117"
+        amazon-ebs.base: Adding tag: "Base_AMI_Name": "amazon-eks-node-1.31-v20240117"
         amazon-ebs.base: Adding tag: "Generated_By": "xrd-packer"
-        amazon-ebs.base: Adding tag: "Kubernetes_Version": "1.28"
+        amazon-ebs.base: Adding tag: "Kubernetes_Version": "1.31"
     ==> amazon-ebs.base: Creating snapshot tags
     ==> amazon-ebs.base: Terminating the source AWS instance...
     ==> amazon-ebs.base: Cleaning up any extra volumes...
