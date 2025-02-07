@@ -10,9 +10,9 @@ A session should be shared with you:
 
 ![alt text](image-5.png)
 
-Click on view. Then select details in the blue menu bar and scroll down to view the Anyconnect Credentials.
+Click on view. Then select info in the top menu bar and scroll down to view the Anyconnect Credentials.
 
-Also take a note of your Public IP address. It is likely to be in 64.100.13.x range. **This is your Public On-Prem IP that will be used later on in Module 5**
+Also take a note of your Public IP address. **This is your Public On-Prem IP that will be used later on in Module 5**
 
 ![alt text](image-6.png)
 
@@ -43,7 +43,7 @@ Confirm that VSCode is logged in by checking the blue box on the bottom-left cor
 
 ![Alt text](image-2.png)
 ## RDP to Rocky Linux
-Return to the dCloud web page, and click on the Rocky Linux Image. Then click on the Remote Desktop hyperlink.
+Return to the dCloud web page, and click on the Rocky Linux Image. Then click on the Web RDP button.
 
 ![alt text](image-8.png)
 
