@@ -89,8 +89,8 @@ After confirmation, logs detailing the creation of all these cloud resources wil
       "name_prefix" = "xrd-terraform-7a69c397"
       "node_iam_instance_profile_name" = "xrd-terraform-7a69c397-node"
       "node_iam_role_name" = "xrd-terraform-7a69c397-node"
-      "oidc_issuer" = "https://oidc.eks.eu-west-1.amazonaws.com/id/26CC37725BB6F049958E025E1E139092"
-      "oidc_provider" = "arn:aws:iam::975049910513:oidc-provider/oidc.eks.eu-west-1.amazonaws.com/id/26CC37725BB6F049958E025E1E139092"
+      "oidc_issuer" = "https://oidc.eks.us-east-1.amazonaws.com/id/26CC37725BB6F049958E025E1E139092"
+      "oidc_provider" = "arn:aws:iam::975049910513:oidc-provider/oidc.eks.us-east-1.amazonaws.com/id/26CC37725BB6F049958E025E1E139092"
       "placement_group_name" = "xrd-terraform-7a69c397"
       "private_subnet_ids" = [
         "subnet-04ca2f998ad3b10ed",
@@ -133,17 +133,17 @@ Password: [ASK YOUR PROCTOR]
 
 Now that you are logged in, check the VPC and EKS clusters by clicking the links below:
 
-[VPC](https://eu-west-1.console.aws.amazon.com/vpcconsole/home?region=eu-west-1#vpcs:)
+[VPC](https://us-east-1.console.aws.amazon.com/vpcconsole/home?region=us-east-1#vpcs:)
 
 ![Alt text](image-3.png)
 
-[EKS Cluster](https://eu-west-1.console.aws.amazon.com/eks/home?region=eu-west-1#/clusters)
+[EKS Cluster](https://us-east-1.console.aws.amazon.com/eks/home?region=us-east-1#/clusters)
 
 ![EKS Cluster](image-1.png)
 
 ![Cluster Networking Info](image-2.png)
 
-[Bastion](https://eu-west-1.console.aws.amazon.com/ec2/home?region=eu-west-1#Instances:search=:ios-xr:xrd:terraform;v=3;$case=tags:true%5C,client:false;$regex=tags:false%5C,client:false)
+[Bastion](https://us-east-1.console.aws.amazon.com/ec2/home?region=us-east-1#Instances:search=:ios-xr:xrd:terraform;v=3;$case=tags:true%5C,client:false;$regex=tags:false%5C,client:false)
 
 ![Bastion](image-4.png)
 
@@ -204,9 +204,9 @@ It may take a few minutes, but when successfull, it will output the id of the ne
 
     ==> Builds finished. The artifacts of successful builds are:
     --> amazon-ebs.base: AMIs were created:
-    eu-west-1: ami-04acbd67a45602c32
+    us-east-1: ami-04acbd67a45602c32
 
-And if we navigate to the AMIs page in the [AWS console](https://eu-west-1.console.aws.amazon.com/ec2/home?region=eu-west-1#Images:visibility=owned-by-me), we can see that this new AMI is present.
+And if we navigate to the AMIs page in the [AWS console](https://us-east-1.console.aws.amazon.com/ec2/home?region=us-east-1#Images:visibility=owned-by-me), we can see that this new AMI is present.
 
 ![AMI-Console](image.png)
 
@@ -224,7 +224,7 @@ Now we can run the `publish-ecr` script
 
 On the AWS Console, we can see that the xrd-vrouter image is available as well.
 
-[ECR](https://eu-west-1.console.aws.amazon.com/ecr/private-registry/repositories?region=eu-west-1)
+[ECR](https://us-east-1.console.aws.amazon.com/ecr/private-registry/repositories?region=us-east-1)
 ![ECR](image-9.png)
 
 
@@ -268,7 +268,7 @@ This module completes fairly quickly, in 2-3 mins.
     "gamma" = "i-0f752124a63822d27"
     }
 
-Navigate to the [EC2 Dashboard](https://eu-west-1.console.aws.amazon.com/ec2/home?region=eu-west-1#Instances:instanceState=running;search=:xrd-terraform;v=3;$case=tags:true%5C,client:false;$regex=tags:false%5C,client:false;sort=instanceTypeFilter) to see the newly created instances:
+Navigate to the [EC2 Dashboard](https://us-east-1.console.aws.amazon.com/ec2/home?region=us-east-1#Instances:instanceState=running;search=:xrd-terraform;v=3;$case=tags:true%5C,client:false;$regex=tags:false%5C,client:false;sort=instanceTypeFilter) to see the newly created instances:
 
 ![Alt text](image-5.png)
 
