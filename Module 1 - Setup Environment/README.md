@@ -128,19 +128,12 @@ drwxr-xr-x. 3 root root 4096 Feb  7 13:15  secrets
     sudo ./aws/install
 
 ## Access your AWS account
-You should have received your AWS credentials from the lab proctors.
+You should have received a link to access to your AWS account from your lab proctors. Click on this link to gain acces to your AWS CLI credentials as well as the AWS Console.
+![alt text](XRd-aws-login-screen.png)
 
-Let's configure our AWS CLI to have access to our demo account
+Copy the credentials into your terminal:
 
-    aws configure
-
-
-And fill in the the Access Key ID and Secret access key parameters using the values we just downloaded. We will us eu-west-1 as our default region.
-
-    AWS Access Key ID [None]: ****************NX6K
-    AWS Secret Access Key [None]: ****************yUF4
-    Default region name [None]: eu-west-1
-    Default output format [None]: 
+![alt text](XRd-aws-credentials.png)
 
 ## Verify AWS account setup: 
 The following command can be used to verify if the AWS account credentials are valid and properly configured: 
@@ -150,9 +143,9 @@ aws sts get-caller-identity
 The output will look similiar to this: 
 ```
 {
-    "UserId": "AIDA47CRU2Z6CONHUF2XA",
-    "Account": "891376948860",
-    "Arn": "arn:aws:iam::891376948860:user/ocp"
+    "UserId": "AROA2XYX24IHIPX34TPUE:Participant",
+    "Account": "738247500302",
+    "Arn": "arn:aws:sts::738247500302:assumed-role/WSParticipantRole/Participant"
 }
 ```
 
