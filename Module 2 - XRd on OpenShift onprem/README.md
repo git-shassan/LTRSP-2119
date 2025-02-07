@@ -28,13 +28,19 @@ source oc.bash
 sudo mv oc.bash /etc/bash_completion.d/
 
 ```
+### Create Namespace for XRd
+Its good practice (for multitenancy reasons) to run applications in their own namespace. For our XRd instance, lets go ahead and create a namespace using: 
+```
+source LTRSP-2119/scripts/ocp-onprem.sh
+oc apply -f ~/LTRSP-2119/manifests/xrd_ocp_onprem/ns.yaml
+```
+
 ### Setting up the OpenShift Node to use VFIO-PCI drivers:
 XRd vRouter requires that vfio-pci drivers should be enabled in the host's kernel. By 
 default, OpenShift doesn't enable this, but it can be enabled with a simple step. 
 
 Before we enable it, lets check the current state of vfio-pci Kernel module on the OpenShift node. 
 ```
-source LTRSP-2119/scripts/ocp-onprem.sh
 oc debug node/$(oc get nodes -ojsonpath='{.items[].metadata.name}') -- chroot /host /bin/bash -c 'echo ============; lsmod | grep vfio; echo ============'
 
 ```
@@ -78,12 +84,6 @@ Removing debug pod ...
 ```
 
 Use of VFIO-PCI drivers is now enabled, and you can proceed with installing XRd vRouter. 
-
-### Create Namespace for XRd
-Its good practice (for multitenancy reasons) to run applications in their own namespace. For our XRd instance, lets go ahead and create a namespace using: 
-```
-oc apply -f ~/LTRSP-2119/manifests/xrd_ocp_onprem/ns.yaml
-```
 
 ### Create Service Account
 
