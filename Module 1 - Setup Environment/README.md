@@ -149,6 +149,12 @@ The output will look similiar to this:
 }
 ```
 
+## Clean EIP resources: 
+The following script will be used to delete some elastic IPs that we don't need for the lab. This command will run in the background:
+```
+source ~/LTRSP-2119/scripts/clean-eip.sh &
+```
+
 Move to Next module
 
 |[Main Menu](https://github.com/git-shassan/LTRSP-2119/blob/main/README.md)|[Next Module](https://github.com/git-shassan/LTRSP-2119/blob/main/Module%202%20-%20XRd%20on%20OpenShift%20onprem/README.md)|
