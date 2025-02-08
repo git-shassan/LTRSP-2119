@@ -121,7 +121,7 @@ Configure GRE Tunnels from XRd5 (the on-prem router running on Red Hat OpenShift
 If you copy/paste the config to routers, please make sure you use the appropriate IP addresses on the 'Tunnel Desitination'
 
 > [!Tip]
-> You can find the XRd1 and XRd2 public IPs in the [EC2 dashboard](https://eu-west-1.console.aws.amazon.com/ec2/home?region=eu-west-1#Instances:instanceState=running)
+> You can find the XRd1 and XRd2 public IPs in the [EC2 dashboard](https://us-east-1.console.aws.amazon.com/ec2/home?region=us-east-1#Instances:instanceState=running)
 > 
 > Go to Alpha > Networking > Network Interfaces for XRd1
 > 
