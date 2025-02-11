@@ -149,7 +149,7 @@ The output will look similiar to this:
 }
 ```
 
-## Clean EIP resources: 
+## Clean NAT resources: 
 The following script will be used to delete some nat gatewats that we don't use for the lab. This command will run in the background:
 ```
 source ~/LTRSP-2119/scripts/clean-nat.sh &
