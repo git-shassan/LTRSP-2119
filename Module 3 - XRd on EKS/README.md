@@ -16,6 +16,11 @@ Terraform is the Infrastructure as Code tool that we will use to provision our A
     unzip terraform_1.7.1_linux_amd64.zip
     mv ./terraform /usr/local/bin/terraform
 -->
+## Clean EIP resources: 
+The following script will be used to free up some elastic IPs that we don't use for the lab. This command will run in the background:
+```
+source ~/LTRSP-2119/scripts/clean-eip.sh &
+```
 
 ## Creating AWS Resources using Terraform
 The [xrd-terraform](https://github.com/tdesh10/xrd-terraform/) containes the modules that we will use to provision our AWS infrastructure.
