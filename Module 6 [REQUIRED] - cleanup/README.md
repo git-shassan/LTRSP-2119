@@ -1,6 +1,6 @@
 ```
 cd ~/xrd-terraform
-terraform -auto-approve -chdir=examples/cleu-topology/workload destroy
-terraform -auto-approve -chdir=examples/cleu-topology/infra destroy
-terraform -auto-approve -chdir=examples/bootstrap destroy
+terraform -chdir=examples/cleu-topology/workload destroy -auto-approve
+terraform -chdir=examples/cleu-topology/infra destroy -auto-approve
+terraform -chdir=examples/bootstrap destroy -auto-approve
 ```
