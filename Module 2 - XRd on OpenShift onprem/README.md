@@ -231,7 +231,7 @@ Interface                      IP-Address      Status          Protocol Vrf-Name
 Loopback0                      1.0.0.5         Up              Up       default 
 ```
 
-### Configure XRd external facing intercace and static route:
+### Configure XRd external facing interface and static route:
 Use the folliwng config snippet to configure XRd's TenGigE interface. This interface maps to the OpenShift inteface that is connected to the internet.
 ```
 configure terminal
