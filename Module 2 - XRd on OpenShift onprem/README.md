@@ -35,6 +35,50 @@ source LTRSP-2119/scripts/ocp-onprem.sh
 oc apply -f ~/LTRSP-2119/manifests/xrd_ocp_onprem/ns.yaml
 ```
 
+### Create Service Account
+
+```
+cd ~/LTRSP-2119/manifests/xrd_ocp_onprem
+oc apply -f sa.yaml
+
+```
+The output should look like: 
+```
+serviceaccount/xrd-sa created
+```
+You can verify that the service account is created using the following command: 
+```
+oc get sa -n xrd
+```
+Output:
+```
+NAME       SECRETS   AGE
+builder    1         3h24m
+default    1         3h24m
+deployer   1         3h24m
+*xrd-sa     1         10s*
+```
+
+### Create the role binding for authorization: 
+```
+oc apply -f role.yaml
+
+```
+The output should look like: 
+```
+clusterrolebinding.rbac.authorization.k8s.io/system:openshift:scc:privileged created
+```
+The creation of the role brinding between a privilaged role, and the service account can be verified by the following command: 
+```
+oc get clusterrolebindings.rbac.authorization.k8s.io -o wide | grep xrd
+```
+Output:
+```
+*system:openshift:scc:privileged*                                           ClusterRole/system:openshift:scc:privileged        
+                                     26s                                                                                       
+                            *xrd/xrd-sa*
+```
+
 ### Setting up the OpenShift Node to use VFIO-PCI drivers:
 XRd vRouter requires that vfio-pci drivers should be enabled in the host's kernel. By 
 default, OpenShift doesn't enable this, but it can be enabled with a simple step. 
@@ -84,50 +128,6 @@ Removing debug pod ...
 ```
 
 Use of VFIO-PCI drivers is now enabled, and you can proceed with installing XRd vRouter. 
-
-### Create Service Account
-
-```
-cd ~/LTRSP-2119/manifests/xrd_ocp_onprem
-oc apply -f sa.yaml
-
-```
-The output should look like: 
-```
-serviceaccount/xrd-sa created
-```
-You can verify that the service account is created using the following command: 
-```
-oc get sa -n xrd
-```
-Output:
-```
-NAME       SECRETS   AGE
-builder    1         3h24m
-default    1         3h24m
-deployer   1         3h24m
-*xrd-sa     1         10s*
-```
-
-### Create the role binding for authorization: 
-```
-oc apply -f role.yaml
-
-```
-The output should look like: 
-```
-clusterrolebinding.rbac.authorization.k8s.io/system:openshift:scc:privileged created
-```
-The creation of the role brinding between a privilaged role, and the service account can be verified by the following command: 
-```
-oc get clusterrolebindings.rbac.authorization.k8s.io -o wide | grep xrd
-```
-Output:
-```
-*system:openshift:scc:privileged*                                           ClusterRole/system:openshift:scc:privileged        
-                                     26s                                                                                       
-                            *xrd/xrd-sa*
-```
 
 ### Create Config Map:
 The pre-defined config map can be viewed using the following: 
