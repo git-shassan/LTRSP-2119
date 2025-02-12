@@ -119,23 +119,6 @@ Now update the kubeconfig to point to the EKS Cluster:
 > Make sure you replace the name with _your_ **cluster_name**
 
 
-In the console we can verify that these resources are created:
-
-First login to AWS using the link provided to you by the proctor. Clicking that link will take you to the following screen: 
-
-<img src='VPC-Login0.png' width='500'>
-
-Use the following credentials to login: 
-
-Account ID: Pre-Populated
-IAM  Username: ocp
-Password: [ASK YOUR PROCTOR]
-
-<img src='VPC-Login1.png' width='500'>
-
-<br>
-<br>
-
 Now that you are logged in, check the VPC and EKS clusters by clicking the links below:
 
 [VPC](https://us-east-1.console.aws.amazon.com/vpcconsole/home?region=us-east-1#vpcs:)
