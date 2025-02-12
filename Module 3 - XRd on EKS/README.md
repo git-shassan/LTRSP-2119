@@ -153,10 +153,6 @@ First let's install packer:
     mv ./packer /usr/local/bin/packer
     rm -f packer_1.10.0_linux_amd64.zip
 
-Before we can run `xrd-packer`, we need to create a default VPC:
-
-    aws ec2 create-default-vpc
-
 Now we can use packer to build an AMI, with the help of the xrd-packer repo:
 
     git clone https://github.com/ios-xr/xrd-packer
