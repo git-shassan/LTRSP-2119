@@ -23,7 +23,7 @@ source ~/LTRSP-2119/scripts/clean-eip.sh &
 ```
 
 ## Creating AWS Resources using Terraform
-The [xrd-terraform](https://github.com/tdesh10/xrd-terraform/){:target="_blank"}  contains the modules that we will use to provision our AWS infrastructure.
+The [xrd-terraform](https://github.com/tdesh10/xrd-terraform/) contains the modules that we will use to provision our AWS infrastructure.
     
     cd ~
     git clone https://github.com/tdesh10/xrd-terraform.git
