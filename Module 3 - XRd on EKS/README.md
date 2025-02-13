@@ -19,7 +19,7 @@ Terraform is the Infrastructure as Code tool that we will use to provision our A
 ## Clean EIP resources: 
 The following script will be used to free up some elastic IPs that we don't use for the lab:
 ```
-source ~/LTRSP-2119/scripts/clean-eip.sh &
+source ~/LTRSP-2119/scripts/clean-eip.sh
 ```
 
 ## Creating AWS Resources using Terraform
