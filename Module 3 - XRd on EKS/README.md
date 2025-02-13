@@ -17,7 +17,7 @@ Terraform is the Infrastructure as Code tool that we will use to provision our A
     mv ./terraform /usr/local/bin/terraform
 -->
 ## Clean EIP resources: 
-The following script will be used to free up some elastic IPs that we don't use for the lab. This command will run in the background:
+The following script will be used to free up some elastic IPs that we don't use for the lab:
 ```
 source ~/LTRSP-2119/scripts/clean-eip.sh &
 ```
