@@ -451,7 +451,7 @@ Success rate is 100 percent (5/5), round-trip min/avg/max = 99/100/102 ms
 
 If time permits, you can perform the same checks on XRd 1, 2, 3 for completeness. 
 
-Lets move to the final module to configure VPN Services across hybrid network infrastructure.
+When you're ready move to the final module to delete all the AWS resources.
 
 
 ![End of Module 5](Mod5_Congrats_Image2.png)
