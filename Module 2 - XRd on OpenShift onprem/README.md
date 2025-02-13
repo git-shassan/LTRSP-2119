@@ -231,14 +231,10 @@ Interface                      IP-Address      Status          Protocol Vrf-Name
 Loopback0                      1.0.0.5         Up              Up       default 
 ```
 
-### Configure XRd external facing interface and static route:
-Use the folliwng config snippet to configure XRd's TenGigE interface. This interface maps to the OpenShift inteface that is connected to the internet.
+### Configure a static route on XRd:
+Use the folliwng config snippet to configure XRd's static route. This  TenGigE interface maps to the OpenShift inteface that is connected to the internet.
 ```
 configure terminal
-interface TenGigE0/0/0/0
- ipv4 address 198.18.1.11 255.255.255.0
- no shutdown
-!
 router static
  address-family ipv4 unicast
   0.0.0.0/0 TenGigE0/0/0/0 198.18.1.1
@@ -279,6 +275,9 @@ RP/0/RP0/CPU0:XRd5#
 **That was easy!!!! You've just instantiated an XRd Instance on Red Hat OpenShift on your private, on-prem environment**  
 
 Do not log out of the XRd5, rather Open a new Linux tab by clicking on the "+" sign on the top left corder of the linux terminal. 
+
+>[!TIP]
+> For every new terminal tab that you open, copy/paste the AWS Environment variables
 
 Move on to Module 3.
 
