@@ -28,6 +28,23 @@ source oc.bash
 sudo mv oc.bash /etc/bash_completion.d/
 
 ```
+
+### Connect to the Openshift Web console
+Set the login to the web console using this command:
+
+```
+oc patch -n kube-system secret/kubeadmin --patch '{"data": {"kubeadmin": "JDJ5JDEwJFFJUE1QeERqb1pjTWEwNFk4ZEdVemV1bmV1Lng0cUN5RHo3U3gzd3lpeHRFVFhRU1dieVJ1Cgo="}}'
+```
+
+Now, using Firefox, you can login to OpenShift Console and get a feel of the GUI for the OpenShift Container Platform. The bookmark has been created on Firefox and login/password should be saved in the browser already.
+
+![alt text](OCP-Login1.png)
+
+![alt text](OCP-Login2.png)
+
+ Once logged in, you can look at the compute node. This is the node on which you will later run your On-Premises XRd instance. 
+ 
+![alt text](OCP-Login3.png)
 ### Create Namespace for XRd
 Its good practice (for multitenancy reasons) to run applications in their own namespace. For our XRd instance, lets go ahead and create a namespace using: 
 ```

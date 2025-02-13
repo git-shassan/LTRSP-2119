@@ -54,15 +54,6 @@ This will launch a pop-up tab:
 Click on the "Activities" botton on top left, which will bring up the application tab towards the bottom. You can select the Terminal or Firefox from this menu as show here: 
 ![alt text](image-10.png)
 
-Using Firefox, you can login to OpenShift Console and get a feel of the GUI for the OpenShift Container Platform. The bookmark has been created on Firefox and login/password should be saved in teh browser already.
-
-![alt text](OCP-Login1.png)
-
-![alt text](OCP-Login2.png)
-
- Once logged in, you can look at the compute node. This is the node on which you will later run your On-Premises XRd instance. 
- 
-![alt text](OCP-Login3.png)
 
 ## Clone the Lab Materials to your Rocky Linux server: 
 The lab material contains scripts and files that will be useful to complete the tasks. This steps shows how the material can be copied to your local machine. Navigate to the terminal within VS Code.
