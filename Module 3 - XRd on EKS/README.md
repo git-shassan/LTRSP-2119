@@ -150,7 +150,7 @@ The [xrd-packer](https://github.com/ios-xr/xrd-packer) public repository makes i
 
 Use packer to build an AMI, with the help of the xrd-packer repo:
 
-    git clone https://github.com/ios-xr/xrd-packer
+    git clone --depth 1 --branch AL2 https://github.com/ios-xr/xrd-packer/
     cd xrd-packer
     wget https://releases.hashicorp.com/packer/1.10.0/packer_1.10.0_linux_amd64.zip
     unzip packer_1.10.0_linux_amd64.zip
