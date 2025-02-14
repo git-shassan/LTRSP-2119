@@ -146,6 +146,11 @@ Removing debug pod ...
 
 Use of VFIO-PCI drivers is now enabled, and you can proceed with installing XRd vRouter. 
 
+**IF THE PREVIOUS STEP IS FAILING TRY THIS:**
+```
+oc apply -f ~/LTRSP-2119/manifests/xrd_ocp_onprem/mc.yaml
+```
+
 ### Create Config Map:
 The pre-defined config map can be viewed using the following: 
 ```
