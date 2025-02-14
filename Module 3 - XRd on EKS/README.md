@@ -146,19 +146,16 @@ In a previous module, we set up kernel parameters, hugepages, and drivers on the
 
 The [xrd-packer](https://github.com/ios-xr/xrd-packer) public repository makes it seamless to build an XRd AMI for any EKS version.
 
-First let's install packer:
 
-    wget https://releases.hashicorp.com/packer/1.10.0/packer_1.10.0_linux_amd64.zip
-    unzip packer_1.10.0_linux_amd64.zip
-    mv ./packer /usr/local/bin/packer
-    rm -f packer_1.10.0_linux_amd64.zip
 
-Now we can use packer to build an AMI, with the help of the xrd-packer repo:
+Use packer to build an AMI, with the help of the xrd-packer repo:
 
     git clone https://github.com/ios-xr/xrd-packer
     cd xrd-packer
-    packer init .
-    packer build -var kubernetes_version=1.31 amazon-ebs.pkr.hcl
+    wget https://releases.hashicorp.com/packer/1.10.0/packer_1.10.0_linux_amd64.zip
+    unzip packer_1.10.0_linux_amd64.zip
+    ./packer init .
+    ./packer build -var kubernetes_version=1.31 amazon-ebs.pkr.hcl
 
 It may take a few minutes, but when successfull, it will output the id of the newly created AMI:
     
