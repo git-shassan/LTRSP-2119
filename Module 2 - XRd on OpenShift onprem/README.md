@@ -33,6 +33,7 @@ sudo mv oc.bash /etc/bash_completion.d/
 Set the login to the web console using this command:
 
 ```
+source LTRSP-2119/scripts/ocp-onprem.sh
 oc patch -n kube-system secret/kubeadmin --patch '{"data": {"kubeadmin": "JDJ5JDEwJFFJUE1QeERqb1pjTWEwNFk4ZEdVemV1bmV1Lng0cUN5RHo3U3gzd3lpeHRFVFhRU1dieVJ1Cgo="}}'
 ```
 
@@ -48,7 +49,6 @@ Now, using Firefox, you can login to OpenShift Console and get a feel of the GUI
 ### Create Namespace for XRd
 Its good practice (for multitenancy reasons) to run applications in their own namespace. For our XRd instance, lets go ahead and create a namespace using: 
 ```
-source LTRSP-2119/scripts/ocp-onprem.sh
 oc apply -f ~/LTRSP-2119/manifests/xrd_ocp_onprem/ns.yaml
 ```
 
