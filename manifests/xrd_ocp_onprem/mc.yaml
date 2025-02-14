@@ -16,8 +16,13 @@ spec:
     passwd: {}
     storage:
       files:
-       - contents:
-           source: data:,%0Afs.inotify.max_user_watches%20%3D%2065536%0Afs.inotify.max_user_instances%20%3D%2064000%0A
-         mode: 420
-         overwrite: true
-         path: /etc/sysctl.d/inotify.conf
+        - path: /etc/sysctl.d/inotify.conf
+          contents:
+            source: data:,fs.inotify.max_user_watches%20%3D%2065536%0Afs.inotify.max_user_instances%20%3D%2065536%0A
+          mode: 420
+          overwrite: true
+        - path: /etc/modules-load.d/vfio.conf
+          contents:
+            source: data:,vfio%0Avfio_pci%0A
+          mode: 420
+          overwrite: true
